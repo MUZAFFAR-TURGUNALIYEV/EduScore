@@ -324,7 +324,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // Sarlavha, sinf va fan — namunadagi joylashuv bilan
                 worksheet.mergeCells(1, 1, 1, lastCol);
-                put(1, 1, `Yangiyer shahar 9-maktab  0 - Chorak 0 - BSB bo'yicha tahlil  (0000-0000 o'quv yili)`, { bold: true, size: 12 });
+                put(1, 1, `Yangiyer shahar 9-maktab  1 - Chorak 1 - BSB bo'yicha tahlil  (2026-2027 o'quv yili)`, { bold: true, size: 12 });
                 put(2, 2, "Sinf", { bold: true, align: "right", border: false });
                 put(2, 3, selectedClass || "");
                 put(3, 2, "Fan", { bold: true, underline: true });

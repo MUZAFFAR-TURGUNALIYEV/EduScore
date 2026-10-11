@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Onest:wght@400;500;600&display=swap');
+
+/* =========================================================
+   EduScore Dashboard — o'qituvchi qalami konsepsiyasi
+   (style.css bilan bir xil token'lar)
+========================================================= */
+
+:root {
+    --paper: #f5f6fb;
+    --ink: #0e1736;
+    --ink-soft: #55607d;
+    --pen: #ee3b4e;
+    --marker: #ffe14d;
+    --blue: #3350ff;
+    --blue-soft: #e4e9ff;
+    --line: #dbe0f0;
+
+    --font-display: 'Bricolage Grotesque', 'Arial Black', Arial, sans-serif;
+    --font-body: 'Onest', Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* daftar kataki */
+body::before {
+    content: "";
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    height: 560px;
+    z-index: -1;
+
+    background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 44px 44px;
+
+    -webkit-mask-image: radial-gradient(ellipse 60% 80% at 50% 0%, #000 20%, transparent 100%);
+    mask-image: radial-gradient(ellipse 60% 80% at 50% 0%, #000 20%, transparent 100%);
+}
+
+:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+::selection {
+    background: var(--marker);
+    color: var(--ink);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+
+    width: 100%;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+
+    background: rgba(245, 246, 251, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1.5px solid var(--ink);
+}
+
+.navbar {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+}
+
+.logo::after {
+    content: "";
+    display: inline-block;
+
+    width: 9px;
+    height: 9px;
+    margin-left: 3px;
+
+    background: var(--pen);
+    border-radius: 50%;
+}
+
+
+/* =========================
+   USER
+========================= */
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 5px 6px 5px 18px;
+
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    box-shadow: 3px 3px 0 var(--ink);
+
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.user-icon {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--marker);
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+
+    padding: 80px 0 110px;
+}
+
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome {
+    margin-bottom: 44px;
+
+    animation: rise 0.8s 0.05s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.welcome h1 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+
+    margin-bottom: 16px;
+}
+
+/* ism marker bilan belgilangan */
+.welcome h1 span {
+    padding: 0 0.1em;
+
+    background: linear-gradient(transparent 60%, var(--marker) 60%, var(--marker) 92%, transparent 92%);
+}
+
+.welcome p {
+    max-width: 520px;
+
+    color: var(--ink-soft);
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.dashboard-card {
+    position: relative;
+
+    background: #fff;
+
+    border: 2px solid var(--ink);
+    border-radius: 24px;
+
+    padding: 44px 40px 40px;
+
+    box-shadow: 8px 8px 0 var(--ink);
+
+    animation: rise 0.8s 0.25s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+/* kartaning ustidagi "skotch" */
+.dashboard-card::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 40px;
+
+    width: 96px;
+    height: 28px;
+
+    background: var(--marker);
+    border: 2px solid var(--ink);
+    border-radius: 4px;
+
+    transform: rotate(-3deg);
+}
+
+.dashboard-card h2 {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+
+    margin-bottom: 8px;
+}
+
+.card-description {
+    color: var(--ink-soft);
+    font-size: 16px;
+
+    margin-bottom: 34px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.input-group label {
+    display: block;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-bottom: 9px;
+}
+
+.input-group select,
+.input-group input {
+    width: 100%;
+    height: 54px;
+
+    padding: 0 16px;
+
+    background-color: var(--paper);
+
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+
+    outline: none;
+
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.input-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    padding-right: 44px;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1.5 1.5 7 7l5.5-5.5' fill='none' stroke='%230e1736' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+}
+
+.input-group input::placeholder {
+    color: #8d96ad;
+    font-weight: 400;
+}
+
+.input-group select:hover,
+.input-group input:hover {
+    background-color: #fff;
+}
+
+.input-group select:focus,
+.input-group input:focus {
+    background-color: #fff;
+    border-color: var(--blue);
+    box-shadow: 4px 4px 0 var(--marker);
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.next-button {
+    width: 100%;
+    height: 60px;
+
+    margin-top: 36px;
+
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+
+    background: var(--blue);
+    color: #fff;
+
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+
+    cursor: pointer;
+
+    box-shadow: 6px 6px 0 var(--ink);
+
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.next-button span {
+    display: inline-block;
+
+    margin-left: 10px;
+    font-size: 22px;
+
+    transition: transform 0.2s;
+}
+
+.next-button:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 var(--ink);
+}
+
+.next-button:hover span {
+    transform: translateX(6px);
+}
+
+.next-button:active {
+    transform: translate(6px, 6px);
+    box-shadow: 0 0 0 var(--ink);
+}
+
+
+/* =========================
+   ANIMATSIYALAR
+========================= */
+
+@keyframes rise {
+    from { opacity: 0; transform: translateY(26px); }
+    to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 750px) {
+
+    main {
+        padding-top: 52px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome p {
+        font-size: 16px;
+    }
+
+    .dashboard-card {
+        padding: 38px 26px 30px;
+    }
+
+    .dashboard-card::before {
+        left: 26px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    header {
+        height: 65px;
+    }
+
+    body::before {
+        top: 65px;
+    }
+
+    .navbar {
+        width: 92%;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .user {
+        font-size: 13px;
+        padding-left: 14px;
+    }
+
+    main {
+        width: 92%;
+    }
+
+    .dashboard-card {
+        padding: 34px 20px 26px;
+        box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .dashboard-card h2 {
+        font-size: 26px;
+    }
+
+    .next-button {
+        height: 56px;
+        font-size: 17px;
+    }
+}

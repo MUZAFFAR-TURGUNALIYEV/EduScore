@@ -1,0 +1,571 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Onest:wght@400;500;600&display=swap');
+
+/* =========================================================
+   EduScore Baholash — o'qituvchi qalami konsepsiyasi
+========================================================= */
+
+:root {
+    --paper: #f5f6fb;
+    --ink: #0e1736;
+    --ink-soft: #55607d;
+    --pen: #ee3b4e;
+    --marker: #ffe14d;
+    --marker-soft: #fff6bf;
+    --blue: #3350ff;
+    --blue-soft: #e4e9ff;
+    --line: #dbe0f0;
+
+    --font-display: 'Bricolage Grotesque', 'Arial Black', Arial, sans-serif;
+    --font-body: 'Onest', Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* daftar kataki */
+body::before {
+    content: "";
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    height: 420px;
+    z-index: -1;
+
+    background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 44px 44px;
+
+    -webkit-mask-image: radial-gradient(ellipse 60% 80% at 50% 0%, #000 20%, transparent 100%);
+    mask-image: radial-gradient(ellipse 60% 80% at 50% 0%, #000 20%, transparent 100%);
+}
+
+:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+::selection {
+    background: var(--marker);
+    color: var(--ink);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+
+    width: 100%;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+
+    background: rgba(245, 246, 251, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1.5px solid var(--ink);
+}
+
+.navbar {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+}
+
+.logo::after {
+    content: "";
+    display: inline-block;
+
+    width: 9px;
+    height: 9px;
+    margin-left: 3px;
+
+    background: var(--pen);
+    border-radius: 50%;
+}
+
+.teacher {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 5px 6px 5px 18px;
+
+    background: #fff;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    box-shadow: 3px 3px 0 var(--ink);
+
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.user-icon {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--marker);
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    width: 94%;
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 64px 0 100px;
+}
+
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.page-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+
+    margin-bottom: 40px;
+
+    animation: rise 0.8s 0.05s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.page-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.05em;
+
+    margin-bottom: 14px;
+}
+
+.page-header p {
+    color: var(--ink-soft);
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   INFO — sinf va fan
+========================= */
+
+.info {
+    display: flex;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.info span {
+    padding: 11px 20px;
+
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    box-shadow: 4px 4px 0 var(--ink);
+}
+
+.info span:nth-child(1) {
+    background: var(--marker);
+    transform: rotate(-2deg);
+}
+
+.info span:nth-child(2) {
+    background: var(--blue-soft);
+    transform: rotate(1.5deg);
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.assessment-card {
+    background: #fff;
+
+    border: 2px solid var(--ink);
+    border-radius: 24px;
+    overflow: hidden;
+
+    box-shadow: 8px 8px 0 var(--ink);
+
+    animation: rise 0.8s 0.25s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 650px;
+}
+
+thead {
+    background: var(--ink);
+}
+
+th {
+    height: 60px;
+    padding: 0 16px;
+
+    background: var(--ink);
+    color: #fff;
+
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-align: center;
+
+    border-bottom: 3px solid var(--pen);
+    white-space: nowrap;
+}
+
+td {
+    height: 64px;
+    padding: 8px 16px;
+
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+
+    border-bottom: 1px solid var(--line);
+
+    transition: background-color 0.15s;
+}
+
+tbody tr:nth-child(even) td {
+    background: #fafbff;
+}
+
+tbody tr:hover td {
+    background: var(--marker-soft);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* birinchi ustun — tartib raqami, qizil chap chiziq */
+tbody td:first-child {
+    width: 64px;
+
+    font-family: var(--font-display);
+    font-weight: 800;
+    color: var(--ink-soft);
+
+    border-right: 2px solid rgba(238, 59, 78, 0.45);
+}
+
+.student-column {
+    text-align: left;
+    min-width: 220px;
+}
+
+.student-name {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--ink);
+    text-align: left;
+}
+
+/* gorizontal siljiganda o'quvchi ismi turib qoladi */
+th.student-column,
+td.student-name {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+}
+
+td.student-name {
+    background: #fff;
+}
+
+tbody tr:nth-child(even) td.student-name {
+    background: #fafbff;
+}
+
+tbody tr:hover td.student-name {
+    background: var(--marker-soft);
+}
+
+
+/* =========================
+   SCORE INPUT
+========================= */
+
+.score-input {
+    width: 76px;
+    height: 44px;
+
+    background: var(--paper);
+
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+
+    outline: none;
+
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+
+    transition: border-color 0.15s, box-shadow 0.15s, background-color 0.15s;
+}
+
+.score-input:hover {
+    background: #fff;
+}
+
+.score-input:focus {
+    background: #fff;
+    border-color: var(--blue);
+    box-shadow: 3px 3px 0 var(--marker);
+}
+
+
+/* =========================
+   BOTTOM
+========================= */
+
+.bottom {
+    min-height: 90px;
+    padding: 20px 28px;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    background: var(--paper);
+    border-top: 2px solid var(--ink);
+}
+
+.total {
+    margin-right: auto;
+
+    color: var(--ink-soft);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.total strong {
+    display: inline-block;
+    min-width: 34px;
+    margin-left: 6px;
+    padding: 3px 10px;
+
+    background: var(--marker);
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 800;
+    text-align: center;
+}
+
+#saveButton,
+#downloadExcelButton {
+    height: 52px;
+    padding: 0 28px;
+
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+
+    cursor: pointer;
+
+    box-shadow: 5px 5px 0 var(--ink);
+
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+#saveButton {
+    background: var(--blue);
+    color: #fff;
+}
+
+#downloadExcelButton {
+    background: var(--marker);
+    color: var(--ink);
+}
+
+#saveButton:hover,
+#downloadExcelButton:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0 var(--ink);
+}
+
+#saveButton:active,
+#downloadExcelButton:active {
+    transform: translate(5px, 5px);
+    box-shadow: 0 0 0 var(--ink);
+}
+
+
+/* =========================
+   ANIMATSIYALAR
+========================= */
+
+@keyframes rise {
+    from { opacity: 0; transform: translateY(26px); }
+    to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 850px) {
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+    header {
+        height: 65px;
+    }
+
+    body::before {
+        top: 65px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .teacher {
+        font-size: 13px;
+        padding-left: 14px;
+    }
+
+    main {
+        width: 92%;
+        padding-top: 42px;
+    }
+
+    .page-header p {
+        font-size: 15px;
+    }
+
+    .info {
+        width: 100%;
+    }
+
+    .info span {
+        flex: 1;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .assessment-card {
+        border-radius: 20px;
+        box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .bottom {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        padding: 20px;
+    }
+
+    .total {
+        margin: 0 0 4px;
+        text-align: center;
+    }
+
+    #saveButton,
+    #downloadExcelButton {
+        width: 100%;
+    }
+}

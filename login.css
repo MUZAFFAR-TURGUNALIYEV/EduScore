@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Onest:wght@400;500;600&display=swap');
+
+/* =========================================================
+   EduScore Login — o'qituvchi qalami konsepsiyasi
+========================================================= */
+
+:root {
+    --paper: #f5f6fb;
+    --ink: #0e1736;
+    --ink-soft: #55607d;
+    --pen: #ee3b4e;
+    --marker: #ffe14d;
+    --blue: #3350ff;
+    --blue-soft: #e4e9ff;
+    --line: #dbe0f0;
+
+    --font-display: 'Bricolage Grotesque', 'Arial Black', Arial, sans-serif;
+    --font-body: 'Onest', Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+::selection {
+    background: var(--marker);
+    color: var(--ink);
+}
+
+
+/* =========================
+   LOGIN CONTAINER
+========================= */
+
+.login-container {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px 20px;
+}
+
+/* daftar kataki */
+.login-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 44px 44px;
+
+    -webkit-mask-image: radial-gradient(ellipse 65% 60% at 50% 50%, #000 25%, transparent 100%);
+    mask-image: radial-gradient(ellipse 65% 60% at 50% 50%, #000 25%, transparent 100%);
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.login-card {
+    position: relative;
+
+    width: 100%;
+    max-width: 440px;
+
+    background: #fff;
+
+    padding: 52px 40px 40px;
+
+    border: 2px solid var(--ink);
+    border-radius: 26px;
+
+    box-shadow: 9px 9px 0 var(--ink);
+
+    animation: rise 0.8s 0.05s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+/* skotch */
+.login-card::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+
+    width: 100px;
+    height: 28px;
+
+    background: var(--marker);
+    border: 2px solid var(--ink);
+    border-radius: 4px;
+
+    transform: translateX(-50%) rotate(-3deg);
+}
+
+/* qizil "5" muhri */
+.login-card::after {
+    content: "5";
+    position: absolute;
+    top: -30px;
+    right: -18px;
+
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--pen);
+
+    background: #fff;
+    border: 3px solid var(--pen);
+    border-radius: 50%;
+    box-shadow: 4px 4px 0 var(--pen);
+
+    transform: rotate(10deg);
+    animation: pop 0.6s 0.7s cubic-bezier(.3, 1.6, .5, 1) both;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    text-align: center;
+
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+
+    margin-bottom: 30px;
+}
+
+.logo::after {
+    content: "";
+    display: inline-block;
+
+    width: 9px;
+    height: 9px;
+    margin-left: 3px;
+
+    background: var(--pen);
+    border-radius: 50%;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+h1 {
+    text-align: center;
+
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 1.05;
+
+    margin-bottom: 14px;
+}
+
+.subtitle {
+    text-align: center;
+
+    color: var(--ink-soft);
+    font-size: 15.5px;
+    line-height: 1.55;
+
+    max-width: 300px;
+    margin: 0 auto 34px;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.input-group {
+    margin-bottom: 22px;
+}
+
+.input-group label {
+    display: block;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-bottom: 9px;
+}
+
+.input-group input {
+    width: 100%;
+    height: 54px;
+
+    padding: 0 16px;
+
+    background: var(--paper);
+
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+
+    outline: none;
+
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.input-group input::placeholder {
+    color: #8d96ad;
+    font-weight: 400;
+}
+
+.input-group input:hover {
+    background: #fff;
+}
+
+.input-group input:focus {
+    background: #fff;
+    border-color: var(--blue);
+    box-shadow: 4px 4px 0 var(--marker);
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    width: 100%;
+    height: 58px;
+
+    margin-top: 12px;
+    padding: 0;
+
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+
+    background: var(--blue);
+
+    cursor: pointer;
+
+    box-shadow: 6px 6px 0 var(--ink);
+
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+/* tugma ichidagi havola butun tugmani qoplaydi */
+button a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    color: #fff;
+    text-decoration: none;
+
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+button:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 var(--ink);
+}
+
+button:active {
+    transform: translate(6px, 6px);
+    box-shadow: 0 0 0 var(--ink);
+}
+
+
+/* =========================
+   ANIMATSIYALAR
+========================= */
+
+@keyframes rise {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes pop {
+    from { opacity: 0; scale: 0.3; }
+    to   { opacity: 1; scale: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .login-container {
+        padding: 56px 16px 40px;
+    }
+
+    .login-card {
+        padding: 46px 22px 30px;
+        box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .login-card::after {
+        right: -6px;
+        width: 54px;
+        height: 54px;
+        font-size: 30px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    button {
+        height: 54px;
+    }
+}
